@@ -57,6 +57,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--backend',type=str,default='cuda',help='Backend')
 parser.add_argument('--save_path_root',type=str,default='saved_models',help='Model save path')
+parser.add_argument('--datasets_root',type=str,default='datasets',help='Datasets path')
 
 
 parser.add_argument('--n1',type=int,default=128,help='First Embedded representation')#256
