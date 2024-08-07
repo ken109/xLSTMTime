@@ -55,6 +55,9 @@ from dataclasses import dataclass
 import argparse
 
 parser = argparse.ArgumentParser()
+parser.add_argument('--backend',type=str,default='cuda',help='Backend')
+
+
 parser.add_argument('--n1',type=int,default=128,help='First Embedded representation')#256
 parser.add_argument('--n2',type=int,default=256,help='Second Embedded representation')
 parser.add_argument('--ch_ind', type=int, default=1, help='Channel Independence; True 1 False 0')

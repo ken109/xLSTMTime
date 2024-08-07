@@ -8,24 +8,30 @@ from einops import rearrange
 
 import argparse
 
+from xlstm1 import sLSTMLayerConfig
 from xlstm1.xlstm_block_stack import xLSTMBlockStack, xLSTMBlockStackConfig
 
 from xlstm1.blocks.mlstm.block import mLSTMBlockConfig
 from xlstm1.blocks.slstm.block import sLSTMBlockConfig
 
 
-mlstm_config = mLSTMBlockConfig()
-slstm_config = sLSTMBlockConfig()
+def xlstm_config(configs):
+    mlstm_config = mLSTMBlockConfig()
+    slstm_config = sLSTMBlockConfig(
+        slstm=sLSTMLayerConfig(
+            backend=configs.backend
+        )
+    )
 
 
 
-config = xLSTMBlockStackConfig(
+    return xLSTMBlockStackConfig(
         mlstm_block=mlstm_config,
         slstm_block=slstm_config,
         num_blocks=3,
         embedding_dim=256,
         add_post_blocks_norm=True,
-        
+
         _block_map = 1,
 
         #slstm_at="all",
@@ -93,6 +99,7 @@ class xlstm(torch.nn.Module):
     
         self.mm= nn.Linear(self.configs.target_points, self.configs.n2)
 
+        config = xlstm_config(configs)
 
         self.mm2= nn.Linear(config.embedding_dim, configs.target_points)
         self.mm3= nn.Linear(configs.context_points,self.configs.n2)
