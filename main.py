@@ -56,6 +56,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--backend',type=str,default='cuda',help='Backend')
+parser.add_argument('--save_path_root',type=str,default='saved_models',help='Model save path')
 
 
 parser.add_argument('--n1',type=int,default=128,help='First Embedded representation')#256
@@ -122,7 +123,7 @@ args = parser.parse_args()
 #args.save_path = 'saved_models/' + args.dset + '/patchtst_supervised/' + args.model_type + '/'
 #if not os.path.exists(args.save_path): os.makedirs(args.save_path)
 args.save_model_name = str(args.model_name2)+'_cw'+str(args.context_points)+'_tw'+str(args.target_points) +'_patch'+str(args.patch_len) + '_stride'+str(args.stride)+'_epochs'+str(args.n_epochs) + '_model' + str(args.model_id)
-args.save_path = 'saved_models/' + args.dset #/My model/' + args.model_type + '/'
+args.save_path = args.save_path_root + '/' + args.dset #/My model/' + args.model_type + '/'
 if not os.path.exists(args.save_path): os.makedirs(args.save_path)
 
 
