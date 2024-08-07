@@ -19,7 +19,7 @@ def get_dls(params):
     if not hasattr(params,'use_time_features'): params.use_time_features = True
 
     if params.dset == 'ettm1':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/ETT-small/'
+        root_path = 'datasets/ETT-small/'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_ETT_minute,
@@ -116,7 +116,7 @@ def get_dls(params):
                 workers=params.num_workers,
                 )
     elif params.dset == 'ettm2':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/ETT-small/'
+        root_path = 'datasets/ETT-small/'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_ETT_minute,
@@ -133,7 +133,7 @@ def get_dls(params):
                 )
 
     elif params.dset == 'etth1':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/ETT-small/'
+        root_path = 'datasets/ETT-small/'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_ETT_hour,
@@ -151,7 +151,7 @@ def get_dls(params):
 
 
     elif params.dset == 'etth2':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/ETT-small/'
+        root_path = 'datasets/ETT-small/'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_ETT_hour,
@@ -169,7 +169,7 @@ def get_dls(params):
     
 
     elif params.dset == 'electricity':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/electricity'
+        root_path = 'datasets/electricity'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_Custom,
@@ -186,7 +186,7 @@ def get_dls(params):
                 )
 
     elif params.dset == 'traffic':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/traffic'
+        root_path = 'datasets/traffic'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_Custom,
@@ -203,7 +203,7 @@ def get_dls(params):
                 )
     
     elif params.dset == 'weather':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/weather'
+        root_path = 'datasets/weather'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_Custom,
@@ -220,7 +220,7 @@ def get_dls(params):
                 )
 
     elif params.dset == 'illness':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/illness'
+        root_path = 'datasets/illness'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_Custom,
@@ -237,7 +237,7 @@ def get_dls(params):
                 )
 
     elif params.dset == 'exchange':
-        root_path = '/content/drive/MyDrive/AI/Datasets/time-series/exchange_rate'
+        root_path = 'datasets/exchange_rate'
         size = [params.context_points, 0, params.target_points]
         dls = DataLoaders(
                 datasetCls=Dataset_Custom,
